@@ -669,36 +669,32 @@
     }
 
     .diagnosis-slide .flow {
-      grid-template-rows: repeat(3, auto) minmax(0, auto) auto;
-      gap: clamp(7px, 1.1vh, 11px);
+      align-content: start;
     }
 
-    .diagnosis-slide .step-card {
-      min-width: 0;
-      padding: clamp(9px, 1.4vh, 13px) clamp(10px, 1.6vw, 14px);
+    .diagnosis-slide .risk-grid {
+      gap: clamp(8px, 1.2vw, 12px);
     }
 
-    .diagnosis-slide .step-card > span:last-child {
-      min-width: 0;
+    .diagnosis-slide .risk-card {
+      min-height: 118px;
+      padding: clamp(11px, 1.5vw, 14px);
     }
 
-    .diagnosis-slide .step-card strong,
     .diagnosis-slide .image-card strong {
       font-size: clamp(14px, 1.55vw, 20px);
       line-height: 1.2;
       overflow-wrap: anywhere;
     }
 
-    .diagnosis-slide .step-card p,
-    .diagnosis-slide .image-card p,
-    .diagnosis-slide .detail-panel p {
+    .diagnosis-slide .image-card p {
       font-size: clamp(12px, 1.22vw, 15px);
       line-height: 1.38;
       overflow-wrap: anywhere;
     }
 
-    .diagnosis-slide .detail-panel {
-      padding: clamp(9px, 1.3vh, 14px);
+    .diagnosis-slide .status-strip {
+      margin-top: 0;
     }
 
     .diagnosis-slide .status-pill {
@@ -709,26 +705,6 @@
     .diagnosis-slide .image-zone {
       grid-template-rows: auto minmax(0, 1fr);
       gap: clamp(8px, 1.1vh, 12px);
-    }
-
-    .diagnosis-slide .inspection-photo-grid {
-      grid-template-rows: repeat(2, auto);
-      align-content: start;
-      gap: clamp(8px, 1.1vh, 12px);
-    }
-
-    .diagnosis-slide .inspection-photo-grid .image-card {
-      display: grid;
-      grid-template-rows: auto auto auto;
-      gap: clamp(5px, 0.8vh, 9px);
-      padding: clamp(7px, 1vh, 10px);
-      overflow: visible;
-    }
-
-    .diagnosis-slide .inspection-photo-grid .image-box {
-      aspect-ratio: auto;
-      height: clamp(68px, 13vh, 128px);
-      min-height: 0;
     }
 
     @media (max-height: 760px) {
@@ -750,8 +726,8 @@
         line-height: 1.32;
       }
 
-      .diagnosis-slide .inspection-photo-grid .image-box {
-        height: clamp(60px, 11vh, 104px);
+      .diagnosis-slide .risk-card {
+        min-height: 100px;
       }
     }
 
@@ -787,6 +763,56 @@
       font-size: clamp(14px, 1.8vw, 18px);
       font-weight: 800;
       line-height: 1.55;
+    }
+
+    .quality-slide .slide-inner {
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: clamp(8px, 1.2vw, 14px);
+      padding-top: clamp(12px, 1.7vw, 22px);
+    }
+
+    .quality-slide .eyebrow {
+      margin-bottom: 5px;
+    }
+
+    .quality-slide h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+    }
+
+    .quality-slide .subtitle {
+      margin-top: 6px;
+      line-height: 1.32;
+    }
+
+    .quality-slide [data-image-zone="quality"] {
+      align-items: start;
+    }
+
+    .quality-slide [data-image-zone="quality"] .image-card {
+      grid-template-rows: auto auto auto;
+      align-content: start;
+      justify-items: center;
+      gap: 8px;
+      min-height: 0;
+      padding: 12px 14px 14px;
+      text-align: center;
+    }
+
+    .quality-slide [data-image-zone="quality"] .image-box {
+      width: 100%;
+      min-height: 0;
+      aspect-ratio: 16 / 8.6;
+    }
+
+    .quality-slide [data-image-zone="quality"] .image-card strong {
+      margin: 2px 0 0;
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.15;
+    }
+
+    .quality-slide [data-image-zone="quality"] .image-card p {
+      margin: 0;
+      line-height: 1.35;
     }
 
     .video-list {
@@ -1012,6 +1038,10 @@
         overflow: auto;
       }
 
+      body.diagnosis-active {
+        overflow: auto;
+      }
+
       .deck {
         min-height: 100vh;
         min-height: 100dvh;
@@ -1096,52 +1126,34 @@
       }
 
       .diagnosis-slide .slide-inner {
+        grid-template-rows: auto auto auto auto;
         gap: 8px;
         padding: 14px;
       }
 
       .diagnosis-slide .content {
-        grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-        gap: 8px;
-        overflow: auto;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        overflow: visible;
       }
 
       .diagnosis-slide .flow {
         gap: 6px;
       }
 
-      .diagnosis-slide .step-card {
-        grid-template-columns: auto minmax(0, 1fr);
-        gap: 7px;
-        padding: 7px;
+      .diagnosis-slide .risk-card {
+        min-height: 92px;
+        padding: 10px;
       }
 
-      .diagnosis-slide .step-no {
-        width: 26px;
-        height: 26px;
-        font-size: 11px;
-      }
-
-      .diagnosis-slide .step-card strong,
       .diagnosis-slide .image-card strong {
         font-size: clamp(12px, 3.2vw, 15px);
         line-height: 1.15;
       }
 
-      .diagnosis-slide .step-card p,
-      .diagnosis-slide .image-card p,
-      .diagnosis-slide .detail-panel p {
+      .diagnosis-slide .image-card p {
         font-size: clamp(10px, 2.55vw, 12px);
         line-height: 1.25;
-      }
-
-      .diagnosis-slide .detail-panel {
-        padding: 7px;
-      }
-
-      .diagnosis-slide .detail-panel strong {
-        margin-bottom: 3px;
-        font-size: clamp(12px, 3.1vw, 14px);
       }
 
       .diagnosis-slide .status-strip {
@@ -1161,36 +1173,6 @@
         min-height: 28px;
         padding: 5px 7px;
         font-size: 11px;
-      }
-
-      .diagnosis-slide .inspection-photo-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(2, auto);
-        align-content: start;
-        gap: 6px;
-      }
-
-      .diagnosis-slide .inspection-photo-grid .image-card {
-        min-height: 0;
-        padding: 6px;
-        gap: 4px;
-      }
-
-      .diagnosis-slide .inspection-photo-grid .image-box {
-        height: clamp(58px, 13vh, 104px);
-        min-height: 0;
-        aspect-ratio: auto;
-      }
-
-      body.diagnosis-active {
-        overflow: hidden;
-      }
-
-      body.diagnosis-active .deck {
-        height: 100vh;
-        height: 100dvh;
-        min-height: 0;
-        overflow: hidden;
       }
 
     }
@@ -1256,27 +1238,25 @@
         </div>
         <div class="content two-column">
           <div class="flow">
-            <button class="step-card active" type="button" data-detail="lens">
-              <span class="step-no">01</span>
-              <span><strong>镜头清洁</strong><p>感应电眼镜头应无油墨、粉尘、纸屑附着。</p></span>
-            </button>
-            <button class="step-card" type="button" data-detail="bracket">
-              <span class="step-no">02</span>
-              <span><strong>支架固定</strong><p>固定支架应无松动、无偏移，安装位置保持稳定。</p></span>
-            </button>
-            <button class="step-card" type="button" data-detail="lamp">
-              <span class="step-no">03</span>
-              <span><strong>灯号测试</strong><p>遮挡或移开物料时，指示灯能够灵敏通断切换。</p></span>
-            </button>
-            <div class="detail-panel" id="detailPanel">
-              <strong>当前重点：镜头清洁</strong>
-              <p>若镜头有油墨、粉尘或纸屑附着，电眼可能误判标签位置，应先清洁后再测试灯号。</p>
+            <div class="risk-grid">
+              <button class="risk-card active" type="button" data-detail="lens" data-risk="01">
+                <strong>镜头清洁</strong>
+                <p>感应电眼镜头应无油墨、粉尘、纸屑附着。</p>
+              </button>
+              <button class="risk-card" type="button" data-detail="bracket" data-risk="02">
+                <strong>支架固定</strong>
+                <p>固定支架应无松动、无偏移，安装位置保持稳定。</p>
+              </button>
+              <button class="risk-card" type="button" data-detail="lamp" data-risk="03">
+                <strong>灯号测试</strong>
+                <p>遮挡或移开物料时，指示灯能够灵敏通断切换。</p>
+              </button>
+              <button class="risk-card" type="button" data-detail="abnormal" data-risk="04">
+                <strong>异常表现</strong>
+                <p>常亮、常灭、频闪均需按故障处理。</p>
+              </button>
             </div>
-            <div class="status-strip" aria-label="异常表现">
-              <span class="status-pill">异常：常亮</span>
-              <span class="status-pill">异常：常灭</span>
-              <span class="status-pill">异常：频闪</span>
-            </div>
+            <div class="risk-detail" id="detailPanel">若镜头有油墨、粉尘或纸屑附着，电眼可能误判标签位置，应先清洁后再测试灯号。</div>
           </div>
           <div class="image-zone">
             <div class="segmented" aria-label="状态图切换">
@@ -1324,13 +1304,13 @@
       </div>
     </section>
 
-    <section class="slide" data-slide="2">
+    <section class="slide quality-slide" data-slide="2">
       <div class="slide-inner">
         <header class="topbar">
           <button class="back-button" type="button" data-target="0">‹ 返回首页</button>
           <div class="page-label">03 / 04</div>
         </header>
-        <div>
+        <div class="slide-heading">
           <p class="eyebrow">质量风险</p>
           <h2>故障后的质量隐患</h2>
           <p class="subtitle">点击风险卡片查看现场提示；电眼异常会直接影响送料稳定与印刷套色。</p>
@@ -1470,6 +1450,10 @@
       lamp: {
         title: "当前重点：灯号测试",
         body: "遮挡和移开物料时观察指示灯，若出现常亮、常灭或频闪，应按故障处理。"
+      },
+      abnormal: {
+        title: "当前重点：异常表现",
+        body: "指示灯常亮、常灭或频闪都代表电眼信号不稳定，应停机确认镜头、支架和接线状态。"
       }
     };
 
@@ -1553,7 +1537,7 @@
         document.querySelectorAll("[data-detail]").forEach((item) => item.classList.remove("active"));
         button.classList.add("active");
         const copy = detailCopy[button.dataset.detail];
-        detailPanel.innerHTML = `<strong>${copy.title}</strong><p>${copy.body}</p>`;
+        detailPanel.textContent = copy.body;
       });
     });
 
